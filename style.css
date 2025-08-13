@@ -192,9 +192,8 @@ header {
 
 /* ============ Responsive Styles ============ */
 @media (max-width: 768px) {
-  /* Hide nav list by default */
+  /* Mobile nav default (hidden) */
   .nav-list {
-    display: none;
     flex-direction: column;
     align-items: center;
     background-color: #1e293b;
@@ -202,19 +201,24 @@ header {
     position: absolute;
     top: 100%;
     left: 0;
-    padding: 1rem 0;
+    padding: 0; /* will animate open */
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
     border-top: 1px solid rgba(255, 255, 255, 0.08);
-    transform: translateY(-10px);
+    overflow: hidden;
+
+    /* Start closed */
+    max-height: 0;
     opacity: 0;
-    transition: all 0.35s ease;
+    transform: translateY(-10px);
+    transition: max-height 0.35s ease, opacity 0.35s ease, transform 0.35s ease;
   }
 
-  /* Show nav list when "show" class added */
+  /* Show nav list when "show" class is added */
   .nav-list.show {
-    display: flex;
-    transform: translateY(0);
+    max-height: 500px; /* enough for all menu items */
     opacity: 1;
+    transform: translateY(0);
+    padding: 1rem 0;
   }
 
   /* Mobile links bigger for touch devices */
@@ -224,18 +228,18 @@ header {
     text-align: center;
     padding: 0.8rem 0;
     font-size: 1.2rem;
-    color: #f1f5f9; /* light text */
+    color: #f1f5f9;
     transition: background-color 0.25s ease, color 0.25s ease;
   }
 
   /* Mobile hover effect */
   .nav-link:hover,
   .nav-link:focus {
-    background-color: rgba(99, 102, 241, 0.15); /* soft indigo bg */
+    background-color: rgba(99, 102, 241, 0.15);
     color: #6366f1;
   }
 
-  /* Hide underline animation for mobile to keep it clean */
+  /* Hide underline animation for mobile */
   .nav-link::after {
     display: none;
   }
@@ -245,6 +249,8 @@ header {
     display: block;
   }
 }
+
+
 
 /* =======================
    Hero Section Styles
@@ -811,5 +817,4 @@ header {
     font-size: 0.75rem;
   }
 }
-
 
