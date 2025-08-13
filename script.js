@@ -59,3 +59,12 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 function toggleMenu() {
   document.getElementById("menuLinks").classList.toggle("show");
 }
+
+// Close menu on link click (mobile only)
+document.querySelectorAll(".nav-link").forEach(link => {
+  link.addEventListener("click", () => {
+    if (window.innerWidth <= 768) { // only close on mobile
+      document.getElementById("menuLinks").classList.remove("show");
+    }
+  });
+});
