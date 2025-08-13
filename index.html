@@ -17,20 +17,36 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <!-- ======= Header ======= -->
-  <header>
-    <div class="container header-container">
-      <h1 class="site-title">YourProduct</h1>
-      <nav aria-label="Primary Navigation">
-        <ul class="nav-list">
-          <li><a href="#home" class="nav-link">Home</a></li>
-          <li><a href="#features" class="nav-link">Features</a></li>
-          <li><a href="#pricing" class="nav-link">Pricing</a></li>
-          <li><a href="#contact" class="nav-link">Contact</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
+<!-- ======= Header ======= -->
+<header class="site-header">
+  <div class="container header-container">
+    
+    <!-- Logo / Site Title -->
+    <a href="#" class="site-title" aria-label="Go to homepage">YourProduct</a>
+
+    <!-- Hamburger icon (mobile only) -->
+    <button class="menu-icon" onclick="toggleMenu()" aria-label="Toggle navigation menu">
+      &#9776;
+    </button>
+
+    <!-- Navigation -->
+    <nav class="main-nav" aria-label="Primary Navigation">
+      <ul class="nav-list" id="menuLinks">
+        <li><a href="#home" class="nav-link">Home</a></li>
+        <li><a href="#features" class="nav-link">Features</a></li>
+        <li><a href="#pricing" class="nav-link">Pricing</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<!-- JavaScript for menu toggle -->
+<script>
+function toggleMenu() {
+  document.getElementById("menuLinks").classList.toggle("show");
+}
+</script>
 
   <!-- ======= Hero Section ======= -->
   <section id="home" class="hero-section">
