@@ -16,6 +16,8 @@ scrollTopBtn.addEventListener("click", () => {
   });
 });
 
+
+
 // ===== Feature Filtering =====
 const filterButtons = document.querySelectorAll(".filter-buttons button");
 const featureCards = document.querySelectorAll(".feature-card");
@@ -52,3 +54,8 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
   });
 });
+
+// <!-- JavaScript for menu toggle -->
+function toggleMenu() {
+  document.getElementById("menuLinks").classList.toggle("show");
+}
