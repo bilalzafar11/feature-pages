@@ -16,8 +16,6 @@ scrollTopBtn.addEventListener("click", () => {
   });
 });
 
-
-
 // ===== Feature Filtering =====
 const filterButtons = document.querySelectorAll(".filter-buttons button");
 const featureCards = document.querySelectorAll(".feature-card");
@@ -26,7 +24,6 @@ filterButtons.forEach(button => {
   button.addEventListener("click", () => {
     const filterValue = button.getAttribute("data-filter");
 
-    // Remove active class from all buttons
     filterButtons.forEach(btn => btn.classList.remove("active"));
     button.classList.add("active");
 
@@ -55,16 +52,28 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   });
 });
 
-// <!-- JavaScript for menu toggle -->
+// ===== Menu Toggle =====
+const menuLinks = document.getElementById("menuLinks");
+const menuBtn = document.querySelector(".menu-icon");
+
 function toggleMenu() {
-  document.getElementById("menuLinks").classList.toggle("show");
+  menuLinks.classList.toggle("show");
 }
 
 // Close menu on link click (mobile only)
 document.querySelectorAll(".nav-link").forEach(link => {
   link.addEventListener("click", () => {
-    if (window.innerWidth <= 768) { // only close on mobile
-      document.getElementById("menuLinks").classList.remove("show");
+    if (window.innerWidth <= 768) {
+      menuLinks.classList.remove("show");
     }
   });
+});
+
+// Close menu if clicked outside (mobile only)
+document.addEventListener("click", (event) => {
+  if (window.innerWidth <= 768) {
+    if (!menuLinks.contains(event.target) && !menuBtn.contains(event.target)) {
+      menuLinks.classList.remove("show");
+    }
+  }
 });
